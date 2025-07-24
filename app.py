@@ -1,6 +1,7 @@
+# app.py (on feature-x)
 def greet(name):
     return f"Hello, {name}!"
 
 if __name__ == "__main__":
     print(greet("World"))
-    print("Welcome to my simple application.")
+    print("Feature X: Enhanced welcome message!") # Modified line
