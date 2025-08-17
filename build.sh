@@ -10,8 +10,8 @@ rm -rf dist/ build/ *.egg-info/ __pycache__/
 
 # Step 2: Run Unit Tests
 echo "Running Unit Tests..."
-# Ensure pytest is installed and accessible in your environment
-pytest_output=$(pytest 2>&1) # Capture output and errors
+# Use pytest from the virtual environment
+pytest_output=$(./venv/bin/pytest 2>&1) # Capture output and errors
 pytest_exit_code=$? # Get the exit code of the pytest command
 
 echo "$pytest_output"
@@ -25,8 +25,8 @@ fi
 
 # Step 3: Create Deployable Package (Wheel and Source Distribution)
 echo "Creating deployable package..."
-# 'python -m build' will create a .whl (wheel) and .tar.gz (source distribution) in the 'dist/' directory
-python -m build
+# Use python from the virtual environment
+./venv/bin/python -m build
 
 if [ $? -ne 0 ]; then
     echo "Package creation FAILED. Build process halted."
