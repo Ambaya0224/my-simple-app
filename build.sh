@@ -10,11 +10,9 @@ rm -rf dist/ build/ *.egg-info/ __pycache__/
 
 # Step 2: Run Unit Tests
 echo "Running Unit Tests..."
-# Use pytest from the virtual environment
-pytest_output=$(./venv/bin/pytest 2>&1) # Capture output and errors
+# Use pytest from the virtual environment with direct output
+./venv/bin/pytest
 pytest_exit_code=$? # Get the exit code of the pytest command
-
-echo "$pytest_output"
 
 if [ $pytest_exit_code -ne 0 ]; then
     echo "Unit tests FAILED. Build process halted."
